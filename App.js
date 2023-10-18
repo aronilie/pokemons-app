@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import PokemonsList from "./src/components/PokemonsList.js";
+import PokemonsList from "./src/components/PokemonsList/PokemonsList.jsx";
 
 function App() {
   return (
