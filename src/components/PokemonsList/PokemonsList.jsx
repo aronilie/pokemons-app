@@ -1,25 +1,12 @@
-import usePokemons from "../../hooks/usePokemons.js";
-import React, { useEffect } from "react";
-import { PokemonsConsumer } from "../../store/pokemonsContext.js";
+import React from "react";
 import PokemonsListStyled from "./PokemonsListStyled.jsx";
 
-const PokemonsList = () => {
-  const { getPokemons } = usePokemons();
-  const { pokemons } = PokemonsConsumer();
-
-  useEffect(() => {
-    (async () => {
-      await getPokemons();
-    })();
-  }, []);
-
+const PokemonsList = ({ pokemons }) => {
   return (
     <PokemonsListStyled>
-      <img src="pokemon_logo.png" width={350} />
-      <div className="subtitle__container">
-        <h2 className="subtitle">Generation 1</h2>
-        <span>{pokemons.length} pokemon</span>
-      </div>
+      {pokemons.map((pokemon) => (
+        <div></div>
+      ))}
     </PokemonsListStyled>
   );
 };

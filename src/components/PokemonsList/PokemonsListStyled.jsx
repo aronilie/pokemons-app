@@ -1,19 +1,9 @@
 import styled from "styled-components";
 
 const PokemonsListStyled = styled.div`
+  margin-top: 2em;
   display: flex;
-  flex-direction: column;
-  gap: 2em;
-
-  .subtitle {
-    font-size: 20px;
-
-    &__container {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-    }
-  }
+  flex-wrap: wrap;
 `;
 
 export default PokemonsListStyled;

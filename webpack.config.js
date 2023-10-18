@@ -8,7 +8,7 @@ export default {
   entry: "./index.js",
 
   resolve: {
-    extensions: [".js", ".mjs"],
+    extensions: [".js", "jsx", ".mjs"],
   },
 
   output: {
