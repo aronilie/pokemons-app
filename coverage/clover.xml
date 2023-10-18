@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1697560214127" clover="3.2.0">
-  <project timestamp="1697560214127" name="All files">
-    <metrics statements="18" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="2" elements="27" coveredelements="8" complexity="0" loc="18" ncloc="18" packages="2" files="2" classes="2"/>
+<coverage generated="1697631694441" clover="3.2.0">
+  <project timestamp="1697631694441" name="All files">
+    <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7" elements="27" coveredelements="27" complexity="0" loc="18" ncloc="18" packages="2" files="2" classes="2"/>
     <package name="hooks">
-      <metrics statements="8" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="usePokemons.js" path="/home/aron/Documents/code/aptitude-tests/pokemons-knowmad/src/hooks/usePokemons.js">
-        <metrics statements="8" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
       </file>
     </package>
     <package name="store">
-      <metrics statements="10" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
       <file name="pokemonsContext.js" path="/home/aron/Documents/code/aptitude-tests/pokemons-knowmad/src/store/pokemonsContext.js">
-        <metrics statements="10" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="9" type="stmt"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="20" count="9" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="9" type="stmt"/>
+        <line num="25" count="9" type="stmt"/>
       </file>
     </package>
   </project>
