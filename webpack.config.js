@@ -45,5 +45,8 @@ export default {
 
   devServer: {
     historyApiFallback: true,
+    historyApiFallback: {
+      index: "/index.html",
+    },
   },
 };
