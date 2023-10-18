@@ -1,11 +1,18 @@
-const path = require("path");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
+import path from "path";
+import HTMLWebpackPlugin from "html-webpack-plugin";
+import { fileURLToPath } from "url";
 
-module.exports = {
-  entry: "./src/index.js",
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default {
+  entry: "./index.js",
+
+  resolve: {
+    extensions: [".js", ".mjs"],
+  },
 
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
 
@@ -26,6 +33,10 @@ module.exports = {
             presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
