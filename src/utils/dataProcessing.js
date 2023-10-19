@@ -1,16 +1,18 @@
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 const filterPokemonProperties = (pokemon) => {
-  const filteredPokemon = {
-    id: pokemon?.id,
-    name: pokemon?.name,
+  return {
+    id: pokemon?.id ?? null,
     img: `https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon?.name}.gif`,
-    weight: pokemon?.weight,
-    height: pokemon?.height,
+    name: capitalizeFirstLetter(pokemon?.name) ?? null,
+    weight: pokemon?.weight ?? null,
+    height: pokemon?.height ?? null,
     abilities: (pokemon?.abilities ?? []).map(
       (ability) => ability?.ability?.name ?? null
     ),
   };
-
-  return filteredPokemon;
 };
 
 export const filterPokemons = (pokemons) => {
