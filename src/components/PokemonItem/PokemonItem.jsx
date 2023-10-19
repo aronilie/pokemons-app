@@ -2,6 +2,7 @@ import React from "react";
 import PokemonItemStyled from "./PokemonItemStyled.jsx";
 
 const PokemonItem = ({ pokemon }) => {
+  console.log(pokemon);
   return (
     <PokemonItemStyled>
       <img
