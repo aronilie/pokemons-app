@@ -3,10 +3,12 @@ import { filterPokemons } from "../utils/dataProcessing.js";
 import { getAllPokemons, getDetailedPokemons } from "../utils/pokemonApi.js";
 
 const usePokemons = () => {
-  const { updatePokemons } = PokemonsConsumer();
+  const { updatePokemons, load, unload } = PokemonsConsumer();
 
   return {
     getPokemons: async () => {
+      load();
+
       const allPokemons = await getAllPokemons();
 
       const detailedPokemons = await getDetailedPokemons(allPokemons);
@@ -14,6 +16,8 @@ const usePokemons = () => {
       const filteredPokemons = filterPokemons(detailedPokemons);
 
       updatePokemons(filteredPokemons);
+
+      unload();
     },
   };
 };

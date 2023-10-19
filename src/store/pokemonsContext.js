@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 
 const usePokemonsStore = () => {
   const [pokemons, setPokemons] = useState([]);
+  const [loading, setLoadaing] = useState(false);
 
   return {
     updatePokemons(pokemons) {
@@ -12,7 +13,17 @@ const usePokemonsStore = () => {
     restorePokemons() {
       setPokemons([]);
     },
+
+    load() {
+      setLoadaing(true);
+    },
+
+    unload() {
+      setLoadaing(false);
+    },
+
     pokemons,
+    loading,
   };
 };
 
