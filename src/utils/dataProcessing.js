@@ -13,12 +13,12 @@ const filterPokemonProperties = (pokemon) => {
   return filteredPokemon;
 };
 
-export const filterPokemonsProperties = (pokemons) => {
+export const filterPokemons = (pokemons) => {
   let filteredPokemons = [];
 
   for (const pokemon of pokemons) {
     filteredPokemons.push(filterPokemonProperties(pokemon));
   }
 
-  return filteredPokemons;
+  return filteredPokemons.sort((a, b) => a.id - b.id);
 };

@@ -1,5 +1,5 @@
 import { PokemonsConsumer } from "../store/pokemonsContext.js";
-import { filterPokemonsProperties } from "../utils/dataProcessing.js";
+import { filterPokemons } from "../utils/dataProcessing.js";
 import { getAllPokemons, getDetailedPokemons } from "../utils/pokemonApi.js";
 
 const usePokemons = () => {
@@ -11,7 +11,7 @@ const usePokemons = () => {
 
       const detailedPokemons = await getDetailedPokemons(allPokemons);
 
-      const filteredPokemons = filterPokemonsProperties(detailedPokemons);
+      const filteredPokemons = filterPokemons(detailedPokemons);
 
       updatePokemons(filteredPokemons);
     },
