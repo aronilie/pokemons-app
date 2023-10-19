@@ -1,5 +1,5 @@
 {
-  "name": "pokemons-immfly",
+  "name": "pokemons-app",
   "type": "module",
   "exports": {
     "./src/*": "./src/*.js"
