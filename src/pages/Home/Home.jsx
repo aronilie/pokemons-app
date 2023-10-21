@@ -3,10 +3,13 @@ import React, { useEffect } from "react";
 import { PokemonsConsumer } from "../../store/pokemonsContext.js";
 import HomeStyled from "./HomeStyled.jsx";
 import PokemonsList from "../../components/PokemonsList/PokemonsList.jsx";
+import loader from "../../utils/loader/loader.js";
 
 const Home = () => {
   const { getPokemons } = usePokemons();
-  const { pokemons } = PokemonsConsumer();
+  const { pokemons, loading } = PokemonsConsumer();
+
+  const PokemonsListWithLoader = loader(PokemonsList, loading);
 
   useEffect(() => {
     (async () => {
@@ -20,7 +23,7 @@ const Home = () => {
       <div className="subtitle__container">
         <h2 className="subtitle">Generation 1</h2>
         <span>{pokemons.length} pokemon</span>
-        <PokemonsList pokemons={pokemons} />
+        <PokemonsListWithLoader pokemons={pokemons} />
       </div>
     </HomeStyled>
   );
