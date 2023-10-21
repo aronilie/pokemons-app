@@ -25,11 +25,11 @@ describe("Given a usePokemons hook", () => {
         await result.current.getPokemons();
       });
 
-      setTimeout(() => {
+      waitFor(() => {
         const pokemons = pokemonsStore.current.pokemons;
 
         expect(pokemons).toEqual(expectedPokemons);
-      }, 0);
+      });
 
       expect(fetch).toHaveBeenCalledWith(
         "https://pokeapi.co/api/v2/generation/1"
