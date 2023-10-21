@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { render, screen } from "../../utils/testUtils/testUtils.js";
-import Alert from "./Alert";
+import Alert from "./Alert.jsx";
 
 describe("Given an Alert component", () => {
   describe("When it is instantiated with 'info' severity and 'Info alert.' text", () => {
