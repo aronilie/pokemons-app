@@ -4,18 +4,19 @@ const usePokemonsStore = () => {
   const [pokemons, setPokemons] = useState([]);
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoadaing] = useState(false);
+  const [error, setError] = useState();
 
   return {
     updatePokemons(pokemons) {
       setPokemons(pokemons);
     },
 
-    restorePokemons() {
-      setPokemons([]);
-    },
-
     updatePokemon(pokemon) {
       setPokemon(pokemon);
+    },
+
+    updateError(error) {
+      setError(error.message);
     },
 
     load() {
@@ -29,6 +30,7 @@ const usePokemonsStore = () => {
     pokemons,
     pokemon,
     loading,
+    error,
   };
 };
 

@@ -27,5 +27,5 @@ export const filterPokemons = (pokemons) => {
     filteredPokemons.push(filterPokemonProperties(pokemon));
   }
 
-  return filteredPokemons.sort((a, b) => a.id - b.id);
+  return filteredPokemons;
 };

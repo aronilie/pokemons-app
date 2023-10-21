@@ -9,22 +9,29 @@ const usePokemons = () => {
   const {
     updatePokemons,
     updatePokemon,
+    updateError,
     load,
     unload,
     pokemons,
     pokemon,
     loading,
+    error,
   } = PokemonsConsumer();
 
   return {
     getPokemons: async () => {
       load();
 
-      const allPokemons = await getAllPokemons();
+      try {
+        const allPokemons = await getAllPokemons(updateError);
 
-      const filteredPokemons = filterPokemons(allPokemons);
+        const filteredPokemons = filterPokemons(allPokemons);
 
-      updatePokemons(filteredPokemons);
+        updatePokemons(filteredPokemons);
+        updateError("");
+      } catch (error) {
+        updateError(error);
+      }
 
       unload();
     },
@@ -32,11 +39,16 @@ const usePokemons = () => {
     getPokemon: async (pokemonName) => {
       load();
 
-      const unfilteredPokemon = await getDetailedPokemon(pokemonName);
+      try {
+        const unfilteredPokemon = await getDetailedPokemon(pokemonName);
 
-      const filteredPokemon = filterPokemonProperties(unfilteredPokemon);
+        const filteredPokemon = filterPokemonProperties(unfilteredPokemon);
 
-      updatePokemon(filteredPokemon);
+        updatePokemon(filteredPokemon);
+        updateError("");
+      } catch (error) {
+        updateError(error);
+      }
 
       unload();
     },
@@ -44,6 +56,7 @@ const usePokemons = () => {
     pokemons,
     pokemon,
     loading,
+    error,
   };
 };
 
