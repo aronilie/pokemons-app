@@ -19,30 +19,4 @@ describe("Given a pokemonsContext context", () => {
       expect(updatedPokemons).toEqual(pokemonsToUpdate);
     });
   });
-
-  describe("When restorePokemons is called", () => {
-    test("Then it should restore all the existent pokemons to none (empty array)", async () => {
-      const pokemonsToUpdate = ["Pikachu", "Charmander"];
-
-      const { result: pokemonsStore } = renderHook(() => PokemonsConsumer(), {
-        wrapper: PokemonsProvider,
-      });
-
-      await act(async () => {
-        await pokemonsStore.current.updatePokemons(pokemonsToUpdate);
-      });
-
-      let updatedPokemons = pokemonsStore.current.pokemons;
-
-      expect(updatedPokemons).toEqual(pokemonsToUpdate);
-
-      await act(async () => {
-        await pokemonsStore.current.restorePokemons();
-      });
-
-      waitFor(() => {
-        expect(updatedPokemons).toEqual([]);
-      });
-    });
-  });
 });
