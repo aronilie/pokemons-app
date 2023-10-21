@@ -12,7 +12,6 @@ export const filterPokemonProperties = (pokemon) => {
     name: capitalizeFirstLetter(pokemon?.name) ?? null,
     img: `https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon?.name}.gif`,
     height: pokemon?.height ?? null,
-    types: pokemon?.weight ?? null,
     types: (pokemon?.types ?? []).map((type) => type?.type?.name ?? null),
     abilities: (pokemon?.abilities ?? []).map(
       (ability) => ability?.ability?.name ?? null

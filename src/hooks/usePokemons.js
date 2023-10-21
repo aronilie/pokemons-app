@@ -6,7 +6,15 @@ import {
 import { getAllPokemons, getDetailedPokemon } from "../utils/pokemonApi.js";
 
 const usePokemons = () => {
-  const { updatePokemons, load, unload } = PokemonsConsumer();
+  const {
+    updatePokemons,
+    updatePokemon,
+    load,
+    unload,
+    pokemons,
+    pokemon,
+    loading,
+  } = PokemonsConsumer();
 
   return {
     getPokemons: async () => {
@@ -28,10 +36,14 @@ const usePokemons = () => {
 
       const filteredPokemon = filterPokemonProperties(unfilteredPokemon);
 
-      unload();
+      updatePokemon(filteredPokemon);
 
-      return filteredPokemon;
+      unload();
     },
+
+    pokemons,
+    pokemon,
+    loading,
   };
 };
 
