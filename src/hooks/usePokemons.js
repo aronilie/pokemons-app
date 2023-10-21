@@ -9,22 +9,28 @@ const usePokemons = () => {
   const {
     updatePokemons,
     updatePokemon,
+    updateError,
     load,
     unload,
     pokemons,
     pokemon,
     loading,
+    error,
   } = PokemonsConsumer();
 
   return {
     getPokemons: async () => {
       load();
 
-      const allPokemons = await getAllPokemons();
+      try {
+        const allPokemons = await getAllPokemons(updateError);
 
-      const filteredPokemons = filterPokemons(allPokemons);
+        const filteredPokemons = filterPokemons(allPokemons);
 
-      updatePokemons(filteredPokemons);
+        updatePokemons(filteredPokemons);
+      } catch (error) {
+        updateError(error);
+      }
 
       unload();
     },
@@ -44,6 +50,7 @@ const usePokemons = () => {
     pokemons,
     pokemon,
     loading,
+    error,
   };
 };
 

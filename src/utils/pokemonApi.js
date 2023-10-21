@@ -1,11 +1,13 @@
-export const getAllPokemons = async () => {
-  const response = await fetch("https://pokeapi.co/api/v2/generation/1");
+export const getAllPokemons = async (errorHandler) => {
+  let response;
+  try {
+    response = await fetch("https://pokepi.co/api/v2/generation/1");
 
-  if (response.ok) {
     const { pokemon_species: pokemons } = await response.json();
+
     return pokemons;
-  } else {
-    throw new Error("Error-HTTP: " + response.status);
+  } catch (error) {
+    throw new Error("Se ha producido un error al obtener los pokemons 😟");
   }
 };
 
