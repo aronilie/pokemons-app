@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { PokemonsProvider } from "../store/pokemonsContext";
+import { PokemonsProvider } from "../../store/pokemonsContext";
 
 const AllProviders = ({ children }) => {
   return <PokemonsProvider>{children}</PokemonsProvider>;

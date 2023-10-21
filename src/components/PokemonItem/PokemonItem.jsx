@@ -1,7 +1,7 @@
 import React from "react";
 import PokemonItemStyled from "./PokemonItemStyled.jsx";
 import { useNavigate } from "react-router-dom";
-import { uncapitalizeFirstLetter } from "../../utils/dataProcessing.js";
+import { uncapitalizeFirstLetter } from "../../utils/dataProcessing/dataProcessing.js";
 
 const PokemonItem = ({ pokemon }) => {
   const navigate = useNavigate();
