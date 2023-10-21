@@ -6,7 +6,6 @@ const usePokemonsStore = () => {
 
   return {
     updatePokemons(pokemons) {
-      console.log("asdf", pokemons);
       setPokemons(pokemons);
     },
 

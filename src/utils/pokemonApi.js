@@ -9,22 +9,15 @@ export const getAllPokemons = async () => {
   }
 };
 
-export const getDetailedPokemons = async (pokemons) => {
-  let detailedPokemons = [];
+export const getDetailedPokemon = async (pokemonName) => {
+  const response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+  );
 
-  for (const pokemon of pokemons) {
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
-    );
-
-    if (response.ok) {
-      const detailedPokemon = await response.json();
-
-      detailedPokemons.push(detailedPokemon);
-    } else {
-      throw new Error("Error-HTTP: " + response.status);
-    }
+  if (response.ok) {
+    const detailedPokemon = await response.json();
+    return detailedPokemon;
+  } else {
+    throw new Error("Error-HTTP: " + response.status);
   }
-
-  return detailedPokemons;
 };

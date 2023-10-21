@@ -1,6 +1,9 @@
 import { PokemonsConsumer } from "../store/pokemonsContext.js";
-import { filterPokemons } from "../utils/dataProcessing.js";
-import { getAllPokemons, getDetailedPokemons } from "../utils/pokemonApi.js";
+import {
+  filterPokemonProperties,
+  filterPokemons,
+} from "../utils/dataProcessing.js";
+import { getAllPokemons, getDetailedPokemon } from "../utils/pokemonApi.js";
 
 const usePokemons = () => {
   const { updatePokemons, load, unload } = PokemonsConsumer();
@@ -11,13 +14,23 @@ const usePokemons = () => {
 
       const allPokemons = await getAllPokemons();
 
-      const detailedPokemons = await getDetailedPokemons(allPokemons);
-
-      const filteredPokemons = filterPokemons(detailedPokemons);
+      const filteredPokemons = filterPokemons(allPokemons);
 
       updatePokemons(filteredPokemons);
 
       unload();
+    },
+
+    getPokemon: async (pokemonName) => {
+      load();
+
+      const unfilteredPokemon = await getDetailedPokemon(pokemonName);
+
+      const filteredPokemon = filterPokemonProperties(unfilteredPokemon);
+
+      unload();
+
+      return filteredPokemon;
     },
   };
 };
