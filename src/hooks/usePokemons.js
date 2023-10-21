@@ -2,8 +2,11 @@ import { PokemonsConsumer } from "../store/pokemonsContext.js";
 import {
   filterPokemonProperties,
   filterPokemons,
-} from "../utils/dataProcessing.js";
-import { getAllPokemons, getDetailedPokemon } from "../utils/pokemonApi.js";
+} from "../utils/dataProcessing/dataProcessing.js";
+import {
+  getAllPokemons,
+  getDetailedPokemon,
+} from "../utils/pokemonApi/pokemonApi.js";
 
 const usePokemons = () => {
   const {
