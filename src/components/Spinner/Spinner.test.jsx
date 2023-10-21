@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 
 describe("Given a Spinner component", () => {
   describe("When it is instantiated", () => {
-    it("Then it should be rendered", () => {
+    test("Then it should be rendered", () => {
       render(<Spinner />);
 
       const spinnerElement = screen.getByTestId("spinner-component");
