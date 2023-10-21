@@ -13,8 +13,8 @@
     "lint": "eslint ./src --ext .js",
     "test": "npx jest",
     "test-w": "npx jest --watchAll=true",
-    "test-coverage": "npm run test -- --coverage",
-    "test-coverage-w": "npm run test -- --coverage --watchAll=true"
+    "test-coverage": "npm run test -- --coverage  --collectCoverageFrom='src/**/*.{js,jxs}'",
+    "test-coverage-w": "npm run test -- --coverage --watchAll=true  --collectCoverageFrom='src/**/*.{js,jxs}"
   },
   "keywords": [],
   "author": "",
