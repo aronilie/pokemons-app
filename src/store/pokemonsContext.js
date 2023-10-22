@@ -4,6 +4,7 @@ const usePokemonsStore = () => {
   const [pokemons, setPokemons] = useState([]);
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoadaing] = useState(false);
+  const [showFavourites, setShowFavourites] = useState(false);
   const [error, setError] = useState();
 
   return {
@@ -19,6 +20,10 @@ const usePokemonsStore = () => {
       setError(error.message);
     },
 
+    updateFavourites() {
+      setShowFavourites((prevState) => !prevState);
+    },
+
     load() {
       setLoadaing(true);
     },
@@ -30,6 +35,7 @@ const usePokemonsStore = () => {
     pokemons,
     pokemon,
     loading,
+    showFavourites,
     error,
   };
 };

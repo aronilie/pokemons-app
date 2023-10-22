@@ -3,9 +3,12 @@ import React, { useEffect } from "react";
 import HomeStyled from "./HomeStyled.jsx";
 import PokemonsList from "../../components/PokemonsList/PokemonsList.jsx";
 import loader from "../../utils/loader/loader.js";
+import PokemonSwitch from "../../components/Switch/PokemonSwitch.jsx";
+import { filterFavoritePokemons } from "../../utils/dataProcessing/dataProcessing.js";
 
 const Home = () => {
-  const { getPokemons, pokemons, loading, error } = usePokemons();
+  const { getPokemons, pokemons, loading, showFavourites, error } =
+    usePokemons();
 
   const PokemonsListWithLoader = loader(PokemonsList, loading, error);
 
@@ -22,8 +25,11 @@ const Home = () => {
       <div className="subtitle__container">
         <h2 className="subtitle">Generation 1</h2>
         <span>{pokemons.length} pokemon</span>
-        <PokemonsListWithLoader pokemons={pokemons} />
       </div>
+      <PokemonSwitch />
+      <PokemonsListWithLoader
+        pokemons={showFavourites ? filterFavoritePokemons(pokemons) : pokemons}
+      />
     </HomeStyled>
   );
 };

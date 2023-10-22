@@ -16,7 +16,7 @@ export const filterPokemonProperties = (pokemon) => {
     abilities: (pokemon?.abilities ?? []).map(
       (ability) => ability?.ability?.name ?? null
     ),
-    favourite: false,
+    isFavourite: false,
   };
 };
 
@@ -28,4 +28,15 @@ export const filterPokemons = (pokemons) => {
   }
 
   return filteredPokemons;
+};
+
+export const isPokemonAlreadyLoaded = (pokemons, pokemonName) => {
+  const foundPokemon = pokemons.find(
+    (pokemon) => uncapitalizeFirstLetter(pokemon.name) === pokemonName
+  );
+  return foundPokemon && foundPokemon.id;
+};
+
+export const filterFavoritePokemons = (pokemons) => {
+  return pokemons.filter((pokemon) => pokemon.isFavourite === true);
 };
