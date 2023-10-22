@@ -124,4 +124,55 @@ describe("Given a usePokemons hook", () => {
       });
     });
   });
+
+  describe("When is called the makeFavourite function", () => {
+    test("Then it should update the 'isFavourite' property of the current Pokemon", () => {
+      const { result: pokemonsStore } = renderHook(() => PokemonsConsumer(), {
+        wrapper: PokemonsProvider,
+      });
+
+      const { result } = renderHook(() => usePokemons(), {
+        wrapper: PokemonsProvider,
+      });
+
+      act(() => {
+        result.current.updatePokemon(pokemonMock);
+        result.current.makeFavourite(true);
+      });
+
+      waitFor(() => {
+        const updatedPokemon = pokemonsStore.current.pokemon;
+
+        expect(updatedPokemon.isFavourite).toBe(true);
+      });
+    });
+  });
+
+  describe("When is called the toggleFavourites function", () => {
+    test("Then it should toggle the 'showFavourites' property", () => {
+      const { result: pokemonsStore } = renderHook(() => PokemonsConsumer(), {
+        wrapper: PokemonsProvider,
+      });
+
+      const { result } = renderHook(() => usePokemons(), {
+        wrapper: PokemonsProvider,
+      });
+
+      act(() => {
+        result.current.toggleFavourites(true);
+      });
+
+      waitFor(() => {
+        expect(pokemonsStore.current.showFavourites).toBe(true);
+      });
+
+      act(() => {
+        result.current.toggleFavourites(false);
+      });
+
+      waitFor(() => {
+        expect(pokemonsStore.current.showFavourites).toBe(false);
+      });
+    });
+  });
 });
