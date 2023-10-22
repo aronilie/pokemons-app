@@ -1,6 +1,7 @@
 import React from "react";
 import PokemonCardStyled from "./PokemonCardStyled.jsx";
 import { useNavigate } from "react-router-dom";
+import Favourite from "../Favourite/Favourite.jsx";
 
 const PokemonCard = ({ pokemon }) => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const PokemonCard = ({ pokemon }) => {
           <PokemonProperty label="Height" value={pokemon.height} />
           <PokemonProperty label="Abilities" value={pokemon.abilities} isList />
         </div>
+        <Favourite />
       </div>
     </PokemonCardStyled>
   );

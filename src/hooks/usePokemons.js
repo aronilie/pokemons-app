@@ -21,6 +21,10 @@ const usePokemons = () => {
     error,
   } = PokemonsConsumer();
 
+  const handleFavourite = (isFavourite) => {
+    return { ...pokemon, favourite: isFavourite };
+  };
+
   return {
     getPokemons: async () => {
       load();
@@ -54,6 +58,14 @@ const usePokemons = () => {
       }
 
       unload();
+    },
+
+    makeFavourite: (isFavourite) => {
+      const updatedPokemon = handleFavourite(isFavourite);
+      const updatedPokemons = pokemons.map((pokemon) =>
+        pokemon.name === updatedPokemon.name ? updatedPokemon : pokemon
+      );
+      updatePokemons(updatedPokemons);
     },
 
     pokemons,
