@@ -19,7 +19,7 @@ const PokemonCard = ({ pokemon }) => {
           <PokemonProperty label="Height" value={pokemon.height} />
           <PokemonProperty label="Abilities" value={pokemon.abilities} isList />
         </div>
-        <Favourite isFavourite={pokemon.favourite} />
+        <Favourite isFavourite={pokemon.isFavourite} />
       </div>
     </PokemonCardStyled>
   );

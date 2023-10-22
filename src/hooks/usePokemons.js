@@ -11,18 +11,29 @@ import {
 const usePokemons = () => {
   const {
     updatePokemons,
-    updatePokemon,
+    updatePokemon: updateSinglePokemon,
     updateError,
+    updateFavourites,
     load,
     unload,
     pokemons,
     pokemon,
     loading,
+    showFavourites,
     error,
   } = PokemonsConsumer();
 
   const handleFavourite = (isFavourite) => {
-    return { ...pokemon, favourite: isFavourite };
+    return { ...pokemon, isFavourite: isFavourite };
+  };
+
+  const updatePokemon = (updatedPokemon) => {
+    const updatedPokemons = pokemons.map((pokemon) =>
+      pokemon.name === updatedPokemon.name ? updatedPokemon : pokemon
+    );
+
+    updatePokemons(updatedPokemons);
+    updateSinglePokemon(updatedPokemon);
   };
 
   return {
@@ -62,13 +73,18 @@ const usePokemons = () => {
 
     makeFavourite: (isFavourite) => {
       const updatedPokemon = handleFavourite(isFavourite);
-      const updatedPokemons = pokemons.map((pokemon) =>
-        pokemon.name === updatedPokemon.name ? updatedPokemon : pokemon
-      );
-      updatePokemon({ ...pokemon, favourite: isFavourite });
-      updatePokemons(updatedPokemons);
+
+      updatePokemon(updatedPokemon);
     },
 
+    toggleFavourites: (isLeft) => {
+      if ((isLeft && !showFavourites) || (!isLeft && showFavourites)) {
+        updateFavourites(!showFavourites);
+      }
+    },
+
+    updatePokemon,
+    showFavourites,
     pokemons,
     pokemon,
     loading,

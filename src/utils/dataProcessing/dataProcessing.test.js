@@ -39,7 +39,7 @@ describe("Given a filterPokemonProperties function", () => {
         height: 4,
         types: ["electric"],
         abilities: ["static", "lightning-rod"],
-        favourite: false,
+        isFavourite: false,
       });
     });
   });
@@ -63,7 +63,7 @@ describe("Given a filterPokemonProperties function", () => {
         height: null,
         types: [],
         abilities: [],
-        favourite: false,
+        isFavourite: false,
       });
     });
   });
@@ -95,7 +95,7 @@ describe("Given a filterPokemons function", () => {
           height: 4,
           types: ["electric"],
           abilities: ["static", "lightning-rod"],
-          favourite: false,
+          isFavourite: false,
         },
       ]);
     });

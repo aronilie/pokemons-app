@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SwitchStyled = styled.div`
+const PokemonSwitchStyled = styled.div`
   display: flex;
   background-color: white;
 
@@ -8,6 +8,7 @@ const SwitchStyled = styled.div`
     padding: 0.5em;
     border: 1px solid black;
     border-radius: 5px 0 0 5px;
+    user-select: none;
     cursor: pointer;
   }
 
@@ -16,6 +17,7 @@ const SwitchStyled = styled.div`
     border: 1px solid black;
     border-left: 0;
     border-radius: 0 5px 5px 0;
+    user-select: none;
     cursor: pointer;
   }
 
@@ -24,4 +26,4 @@ const SwitchStyled = styled.div`
   }
 `;
 
-export default SwitchStyled;
+export default PokemonSwitchStyled;

@@ -5,9 +5,13 @@ import PokemonItem from "../PokemonItem/PokemonItem.jsx";
 const PokemonsList = ({ pokemons }) => {
   return (
     <PokemonsListStyled>
-      {pokemons?.map((pokemon) => (
-        <PokemonItem pokemon={pokemon} key={pokemon.name} />
-      ))}
+      {pokemons.length ? (
+        pokemons?.map((pokemon) => (
+          <PokemonItem pokemon={pokemon} key={pokemon.name} />
+        ))
+      ) : (
+        <span>There are no pokemons yet! 😟</span>
+      )}
     </PokemonsListStyled>
   );
 };
