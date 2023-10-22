@@ -29,3 +29,10 @@ export const filterPokemons = (pokemons) => {
 
   return filteredPokemons;
 };
+
+export const isPokemonAlreadyLoaded = (pokemons, pokemonName) => {
+  const foundPokemon = pokemons.find(
+    (pokemon) => uncapitalizeFirstLetter(pokemon.name) === pokemonName
+  );
+  return foundPokemon && foundPokemon.id;
+};

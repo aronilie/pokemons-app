@@ -5,7 +5,6 @@ import Favourite from "../Favourite/Favourite.jsx";
 
 const PokemonCard = ({ pokemon }) => {
   const navigate = useNavigate();
-
   return (
     <PokemonCardStyled>
       <div className="card-container">
@@ -20,7 +19,7 @@ const PokemonCard = ({ pokemon }) => {
           <PokemonProperty label="Height" value={pokemon.height} />
           <PokemonProperty label="Abilities" value={pokemon.abilities} isList />
         </div>
-        <Favourite />
+        <Favourite isFavourite={pokemon.favourite} />
       </div>
     </PokemonCardStyled>
   );

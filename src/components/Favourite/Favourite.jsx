@@ -1,13 +1,16 @@
 import React from "react";
 import usePokemons from "../../hooks/usePokemons";
 
-const Favourite = () => {
+const Favourite = ({ isFavourite }) => {
   const { makeFavourite } = usePokemons();
 
   return (
     <>
-      <button onClick={() => makeFavourite(true)}>Favourite</button>
-      <button onClick={() => makeFavourite(false)}>Unfavourite</button>
+      {isFavourite ? (
+        <button onClick={() => makeFavourite(false)}>Unfavourite</button>
+      ) : (
+        <button onClick={() => makeFavourite(true)}>Favourite</button>
+      )}
     </>
   );
 };

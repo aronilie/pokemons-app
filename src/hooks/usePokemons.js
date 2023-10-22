@@ -65,6 +65,7 @@ const usePokemons = () => {
       const updatedPokemons = pokemons.map((pokemon) =>
         pokemon.name === updatedPokemon.name ? updatedPokemon : pokemon
       );
+      updatePokemon({ ...pokemon, favourite: isFavourite });
       updatePokemons(updatedPokemons);
     },
 

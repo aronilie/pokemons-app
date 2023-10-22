@@ -8,7 +8,6 @@ const usePokemonsStore = () => {
 
   return {
     updatePokemons(pokemons) {
-      console.log(pokemons);
       setPokemons(pokemons);
     },
 
