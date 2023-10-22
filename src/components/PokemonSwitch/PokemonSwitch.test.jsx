@@ -4,7 +4,7 @@ import { render, fireEvent } from "../../utils/testUtils/testUtils.js";
 import PokemonSwitch from "./PokemonSwitch";
 import usePokemons from "../../hooks/usePokemons";
 
-jest.mock("../../hooks/usePokemons"); // Mock the usePokemons hook
+jest.mock("../../hooks/usePokemons");
 
 describe("Given a PokemonSwitch component", () => {
   describe("When it is instantiated and showFavourites is false", () => {
