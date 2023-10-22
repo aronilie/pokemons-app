@@ -3,14 +3,18 @@ import React, { useEffect } from "react";
 import HomeStyled from "./HomeStyled.jsx";
 import PokemonsList from "../../components/PokemonsList/PokemonsList.jsx";
 import loader from "../../utils/loader/loader.js";
-import PokemonSwitch from "../../components/Switch/PokemonSwitch.jsx";
+import PokemonSwitch from "../../components/PokemonSwitch/PokemonSwitch.jsx";
 import { filterFavoritePokemons } from "../../utils/dataProcessing/dataProcessing.js";
+import Header from "../../components/Header/Header.jsx";
 
 const Home = () => {
   const { getPokemons, pokemons, loading, showFavourites, error } =
     usePokemons();
 
   const PokemonsListWithLoader = loader(PokemonsList, loading, error);
+
+  const getActualPokemons = () =>
+    showFavourites ? filterFavoritePokemons(pokemons) : pokemons;
 
   useEffect(() => {
     !pokemons.length &&
@@ -21,15 +25,9 @@ const Home = () => {
 
   return (
     <HomeStyled>
-      <img src="/pokemon_logo.png" height={128} />
-      <div className="subtitle__container">
-        <h2 className="subtitle">Generation 1</h2>
-        <span>{pokemons.length} pokemon</span>
-      </div>
+      <Header pokemons={getActualPokemons()} />
       <PokemonSwitch />
-      <PokemonsListWithLoader
-        pokemons={showFavourites ? filterFavoritePokemons(pokemons) : pokemons}
-      />
+      <PokemonsListWithLoader pokemons={getActualPokemons()} />
     </HomeStyled>
   );
 };
