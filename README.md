@@ -30,11 +30,13 @@ To install and run the app, follow these steps:
 
 **Custom Hooks**: Utilizes custom hooks to manage application data and state.
 
-**Error Handling**: Provides user-friendly feedback for loading errors.
+**Feedback**: Provides user-friendly feedback for data load and errors.
 
 **Optimized Navigation**: Ensures fast navigation and rendering between components.
 
 **Minimal Rerendering**: Prevents unnecessary component re-renders for improved performance.
+
+**Responsive Design**: The application is designed to be fully responsive, ensuring a seamless experience on various screen sizes and devices.
 
 ## Tests
 
@@ -43,6 +45,10 @@ The application has been thoroughly tested with Jest and React Testing Library, 
 ```bash
   npm run test
 ```
+
+## Custom Webpack Implementation
+
+This app uses a custom Webpack implementation for a tailored build process, optimizing performance and resource utilization, instead of create-react-app or similar packages.
 
 ## Third Party Libraries
 
